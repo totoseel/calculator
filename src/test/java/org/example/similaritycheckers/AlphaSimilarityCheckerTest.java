@@ -23,4 +23,10 @@ class AlphaSimilarityCheckerTest {
     void noCommonAlphabets_returns0() {
         assertThat(checker.calculate("A", "BB")).isEqualTo(0);
     }
+
+    @Test
+    void partialCommonAlphabets_returnsPartialScore() {
+        // setA={A}, setB={A,E}, union=2, intersection=1 → 1/2 * 40 = 20
+        assertThat(checker.calculate("AA", "AAE")).isEqualTo(20);
+    }
 }
