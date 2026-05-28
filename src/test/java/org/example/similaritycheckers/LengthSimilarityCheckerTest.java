@@ -18,4 +18,9 @@ class LengthSimilarityCheckerTest {
     void sameLength_returns60() {
         assertThat(checker.calculate("ASD", "DSA")).isEqualTo(60);
     }
+
+    @Test
+    void doubleLengthDifference_returns0() {
+        assertThat(checker.calculate("A", "BB")).isEqualTo(0);
+    }
 }
