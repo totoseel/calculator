@@ -10,7 +10,8 @@ public class LengthSimilarityChecker {
         if (isDoubleLengthOrMore(longer, shorter)) {
             return 0;
         }
-        return MAX_SCORE;
+        int gap = longer - shorter;
+        return (int) ((1.0 - (double) gap / shorter) * MAX_SCORE);
     }
 
     private int longerLength(String a, String b) {
