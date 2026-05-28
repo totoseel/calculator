@@ -4,21 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrimeFactors {
-    public List<Integer> calculate(int input){
-        List<Integer> l = new ArrayList<>();
-        if (input < 2) {
-            return l;
+    public List<Integer> calculate(int number){
+        List<Integer> factors = new ArrayList<>();
+        if (number < 2) {
+            return factors;
         }
 
-        if (input == 2){
-            l.add(2);
-        } else if (input == 3){
-            l.add(3);
-        } else if (input == 4){
-            l.add(2);
-            l.add(2);
+        for (int i = 2; i * i <= number; i++) {
+            while (number % i == 0) {
+                factors.add(i);
+                number /= i;
+            }
         }
 
-        return l;
+        if (number > 1) {
+            factors.add(number);
+        }
+
+        return factors;
     }
 }

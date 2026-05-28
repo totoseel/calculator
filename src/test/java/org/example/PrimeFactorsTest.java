@@ -23,9 +23,7 @@ class PrimeFactorsTest {
     @Test
     void testInvalidInput() {
         Assertions.assertEquals(0, primeFactors.calculate(-1).size());
-
         Assertions.assertEquals(0, primeFactors.calculate(0).size());
-
         Assertions.assertEquals(0, primeFactors.calculate(1).size());
     }
 }
