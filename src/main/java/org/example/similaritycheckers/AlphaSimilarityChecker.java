@@ -11,10 +11,7 @@ public class AlphaSimilarityChecker {
         Set<Character> setA = toUniqueChars(a);
         Set<Character> setB = toUniqueChars(b);
 
-        Set<Character> intersection = new HashSet<>(setA);
-        intersection.retainAll(setB);
-
-        if (intersection.isEmpty()) {
+        if (intersection(setA, setB).isEmpty()) {
             return 0;
         }
         return MAX_SCORE;
@@ -26,5 +23,11 @@ public class AlphaSimilarityChecker {
             set.add(c);
         }
         return set;
+    }
+
+    private Set<Character> intersection(Set<Character> setA, Set<Character> setB) {
+        Set<Character> result = new HashSet<>(setA);
+        result.retainAll(setB);
+        return result;
     }
 }
