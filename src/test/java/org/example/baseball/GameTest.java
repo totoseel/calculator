@@ -23,4 +23,9 @@ class GameTest {
     void throwExceptionWhenInputIsNull() {
         assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> game.guess(null));
     }
+
+    @Test
+    void throwExceptionWhenInputLengthIsUnmatched() {
+        assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> game.guess("12"));
+    }
 }
